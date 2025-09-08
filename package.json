@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "render-build": "next build",
+    "render-build": "./render-build.sh",
     "start": "next start",
     "lint": "next lint",
     "deploy": "npm run build && touch out/.nojekyll && gh-pages -d out -t true -b gh-pages",
