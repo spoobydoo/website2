@@ -29,11 +29,11 @@ const ExperienceSection = () => {
       </div>
       
       <div className="grid grid-cols-2 gap-6">
-        {/* Left side - Work samples grid */}
-        <div className="space-y-6">
+        {/* Left side - Work Highlights */}
+        <div>
           <div className="text-xl font-semibold mb-2">Work Highlights</div>
           <div className="grid grid-cols-3 gap-1">
-            {workSamples.slice(0, 9).map((sample) => (
+            {workSamples.slice(0, 15).map((sample) => (
               <div key={sample.id} className="aspect-square overflow-hidden bg-gray-100">
                 <img
                   src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/work/${sample.path}`}
@@ -42,45 +42,20 @@ const ExperienceSection = () => {
                 />
               </div>
             ))}
-          </div>
-          
-          <div className="grid grid-cols-3 gap-1">
-            {workSamples.slice(9, 12).map((sample) => (
-              <div key={sample.id} className="aspect-square overflow-hidden bg-gray-100">
-                <img
-                  src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/work/${sample.path}`}
-                  alt={`Work sample ${sample.id}`}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            ))}
-          </div>
-          
-          <div className="grid grid-cols-3 gap-1">
-            {workSamples.slice(12, 15).map((sample) => (
-              <div key={sample.id} className="aspect-square overflow-hidden bg-gray-100">
-                <img
-                  src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/work/${sample.path}`}
-                  alt={`Work sample ${sample.id}`}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            ))}
-          </div>
-          
-          <div className="aspect-square overflow-hidden bg-gray-100">
-            <img
-              src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/work/${workSamples[15].path}`}
-              alt={`Work sample ${workSamples[15].id}`}
-              className="w-full h-full object-cover"
-            />
+            <div className="aspect-square overflow-hidden bg-gray-100">
+              <img
+                src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/work/${workSamples[15].path}`}
+                alt={`Work sample ${workSamples[15].id}`}
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
         </div>
         
         {/* Right side - Resume */}
-        <div className="space-y-6">
+        <div>
           <div className="text-xl font-semibold mb-2">Resume</div>
-          <a href={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/docs/resume.pdf`} target="_blank" rel="noopener noreferrer" className="block">
+          <a href={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/docs/resume.pdf`} target="_blank" rel="noopener noreferrer" className="block mb-1">
             <img
               src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/resume.png`}
               alt="Resume"
