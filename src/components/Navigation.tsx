@@ -2,13 +2,12 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { Home, Briefcase, User, Mail, Menu, X, ChevronRight, Star, ExternalLink } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const pathname = usePathname();
+  const [activeSection, setActiveSection] = useState('home');
 
   // Handle scroll effect for navigation
   useEffect(() => {
@@ -18,6 +17,21 @@ const Navigation = () => {
       } else {
         setIsScrolled(false);
       }
+      
+      // Determine which section is currently in view
+      const sections = ['home', 'about', 'experience', 'contact'];
+      const sectionElements = sections.map(id => document.getElementById(id));
+      
+      for (let i = sectionElements.length - 1; i >= 0; i--) {
+        const section = sectionElements[i];
+        if (section) {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= 150) {
+            setActiveSection(sections[i]);
+            break;
+          }
+        }
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -26,15 +40,8 @@ const Navigation = () => {
     };
   }, []);
 
-  // Close mobile menu on route change
-  useEffect(() => {
-    setIsMobileMenuOpen(false);
-  }, [pathname]);
-
-  const isActive = (path: string) => {
-    if (path === '/' && pathname === '/') return true;
-    if (path !== '/' && pathname?.startsWith(path)) return true;
-    return false;
+  const isActive = (sectionId: string) => {
+    return activeSection === sectionId;
   };
 
   return (
@@ -48,7 +55,14 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="group flex items-center space-x-3">
+          <Link 
+            href="#home" 
+            className="group flex items-center space-x-3"
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
             <div className="relative">
               <div className={`relative w-12 h-12 bg-white rounded-full 
                   flex items-center justify-center transform transition-all duration-300 
@@ -67,152 +81,115 @@ const Navigation = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <Link 
-              href="/" 
-              className={`relative px-1 py-2 group ${isActive('/') ? 'text-white' : 'text-gray-300 hover:text-white'} transition-colors duration-300`}
+              href="#home" 
+              className={`relative px-1 py-2 group text-white hover:text-gray-100 transition-colors duration-300 ${isActive('home') ? 'font-medium' : ''}`}
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' });
+              }}
             >
               <span className="relative z-10">Home</span>
-              {isActive('/') && (
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-white rounded-full"></span>
-              )}
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white rounded-full group-hover:w-full transition-all duration-300"></span>
+              <span className={`absolute bottom-0 left-0 h-0.5 bg-white rounded-full transition-all duration-300 ${isActive('home') ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
             </Link>
             <Link 
-              href="/about" 
-              className={`relative px-1 py-2 group ${isActive('/about') ? 'text-white' : 'text-gray-300 hover:text-white'} transition-colors duration-300`}
+              href="#about" 
+              className={`relative px-1 py-2 group text-white hover:text-gray-100 transition-colors duration-300 ${isActive('about') ? 'font-medium' : ''}`}
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+              }}
             >
               <span className="relative z-10">About Me</span>
-              {isActive('/about') && (
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full"></span>
-              )}
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full group-hover:w-full transition-all duration-300"></span>
+              <span className={`absolute bottom-0 left-0 h-0.5 bg-white rounded-full transition-all duration-300 ${isActive('about') ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
             </Link>
             <Link 
-              href="/experience" 
-              className={`relative px-1 py-2 group ${isActive('/experience') ? 'text-white' : 'text-gray-300 hover:text-white'} transition-colors duration-300`}
+              href="#experience" 
+              className={`relative px-1 py-2 group text-white hover:text-gray-100 transition-colors duration-300 ${isActive('experience') ? 'font-medium' : ''}`}
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' });
+              }}
             >
               <span className="relative z-10">Work Experience</span>
-              {isActive('/experience') && (
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full"></span>
-              )}
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full group-hover:w-full transition-all duration-300"></span>
+              <span className={`absolute bottom-0 left-0 h-0.5 bg-white rounded-full transition-all duration-300 ${isActive('experience') ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
             </Link>
             <Link 
-              href="/contact" 
-              className={`relative px-3 py-2 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300`}
+              href="#contact" 
+              className={`relative px-1 py-2 group text-white hover:text-gray-100 transition-colors duration-300 ${isActive('contact') ? 'font-medium' : ''}`}
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+              }}
             >
-              <span className="relative z-10 flex items-center">
-                Contact <Mail size={14} className="ml-1" />
-              </span>
+              <span className="relative z-10">Contact</span>
+              <span className={`absolute bottom-0 left-0 h-0.5 bg-white rounded-full transition-all duration-300 ${isActive('contact') ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
             </Link>
           </div>
-
+          
           {/* Mobile Menu Button */}
           <button 
-            className="md:hidden text-white focus:outline-none"
+            className="md:hidden text-white"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
-              <X size={24} className="text-purple-300" />
+              <X size={24} />
             ) : (
-              <Menu size={24} className="text-purple-300" />
+              <Menu size={24} />
             )}
           </button>
         </div>
-      </div>
-
-      {/* Mobile Menu */}
-      <div 
-        className={`md:hidden absolute top-full left-0 w-full bg-slate-900/90 backdrop-blur-xl border-b border-purple-500/20
-          transform transition-all duration-500 ease-in-out overflow-hidden ${
-            isMobileMenuOpen ? 'max-h-96 border-t border-purple-500/20 shadow-2xl shadow-purple-900/20' : 'max-h-0'
-          }`}
-      >
-        <div className="py-6 px-6 space-y-2">
-          <Link 
-            href="/" 
-            className={`flex items-center py-3 px-4 rounded-xl ${
-              isActive('/') 
-                ? 'bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-white font-medium border border-purple-500/30' 
-                : 'text-gray-300 hover:bg-white/5 border border-transparent'
-            } transition-all duration-300`}
-          >
-            <div className={`w-8 h-8 rounded-full flex items-center justify-center mr-3 ${
-              isActive('/') ? 'bg-purple-500/30' : 'bg-slate-800'
-            }`}>
-              <Home size={16} className={isActive('/') ? 'text-purple-300' : 'text-gray-400'} />
+        
+        {/* Mobile Navigation Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden py-4 border-t border-white/20 mt-4">
+            <div className="flex flex-col space-y-3">
+              <Link 
+                href="#home" 
+                className={`text-white py-2 px-2 rounded-lg hover:bg-white/10 transition-colors duration-300 ${isActive('home') ? 'bg-white/10 font-medium' : ''}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' });
+                  setIsMobileMenuOpen(false);
+                }}
+              >
+                Home
+              </Link>
+              <Link 
+                href="#about" 
+                className={`text-white py-2 px-2 rounded-lg hover:bg-white/10 transition-colors duration-300 ${isActive('about') ? 'bg-white/10 font-medium' : ''}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+                  setIsMobileMenuOpen(false);
+                }}
+              >
+                About Me
+              </Link>
+              <Link 
+                href="#experience" 
+                className={`text-white py-2 px-2 rounded-lg hover:bg-white/10 transition-colors duration-300 ${isActive('experience') ? 'bg-white/10 font-medium' : ''}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' });
+                  setIsMobileMenuOpen(false);
+                }}
+              >
+                Work Experience
+              </Link>
+              <Link 
+                href="#contact" 
+                className={`text-white py-2 px-2 rounded-lg hover:bg-white/10 transition-colors duration-300 ${isActive('contact') ? 'bg-white/10 font-medium' : ''}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                  setIsMobileMenuOpen(false);
+                }}
+              >
+                Contact
+              </Link>
             </div>
-            <span>Home</span>
-            {isActive('/') && <Star size={14} className="text-purple-400 ml-auto" />}
-          </Link>
-          
-          <Link 
-            href="/about" 
-            className={`flex items-center py-3 px-4 rounded-xl ${
-              isActive('/about') 
-                ? 'bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-white font-medium border border-purple-500/30' 
-                : 'text-gray-300 hover:bg-white/5 border border-transparent'
-            } transition-all duration-300`}
-          >
-            <div className={`w-8 h-8 rounded-full flex items-center justify-center mr-3 ${
-              isActive('/about') ? 'bg-purple-500/30' : 'bg-slate-800'
-            }`}>
-              <User size={16} className={isActive('/about') ? 'text-purple-300' : 'text-gray-400'} />
-            </div>
-            <span>About Me</span>
-            {isActive('/about') && <Star size={14} className="text-purple-400 ml-auto" />}
-          </Link>
-          
-          <Link 
-            href="/experience" 
-            className={`flex items-center py-3 px-4 rounded-xl ${
-              isActive('/experience') 
-                ? 'bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-white font-medium border border-purple-500/30' 
-                : 'text-gray-300 hover:bg-white/5 border border-transparent'
-            } transition-all duration-300`}
-          >
-            <div className={`w-8 h-8 rounded-full flex items-center justify-center mr-3 ${
-              isActive('/experience') ? 'bg-purple-500/30' : 'bg-slate-800'
-            }`}>
-              <Briefcase size={16} className={isActive('/experience') ? 'text-purple-300' : 'text-gray-400'} />
-            </div>
-            <span>Work Experience</span>
-            {isActive('/experience') && <Star size={14} className="text-purple-400 ml-auto" />}
-          </Link>
-          
-          <Link 
-            href="/contact" 
-            className={`flex items-center py-3 px-4 rounded-xl ${
-              isActive('/contact') 
-                ? 'bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-white font-medium border border-purple-500/30' 
-                : 'text-gray-300 hover:bg-white/5 border border-transparent'
-            } transition-all duration-300`}
-          >
-            <div className={`w-8 h-8 rounded-full flex items-center justify-center mr-3 ${
-              isActive('/contact') ? 'bg-purple-500/30' : 'bg-slate-800'
-            }`}>
-              <Mail size={16} className={isActive('/contact') ? 'text-purple-300' : 'text-gray-400'} />
-            </div>
-            <span>Contact</span>
-            {isActive('/contact') && <Star size={14} className="text-purple-400 ml-auto" />}
-          </Link>
-          
-          <div className="pt-4 mt-4 border-t border-white/10">
-            <a 
-              href="#" 
-              className="flex items-center py-3 px-4 text-purple-300 hover:text-white transition-colors"
-              onClick={(e) => {
-                e.preventDefault();
-                alert('Resume download will be implemented here');
-              }}
-            >
-              <div className="w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center mr-3">
-                <ExternalLink size={14} className="text-purple-300" />
-              </div>
-              <span>Download Resume</span>
-            </a>
           </div>
-        </div>
+        )}
       </div>
     </nav>
   );
