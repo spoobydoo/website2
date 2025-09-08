@@ -7,7 +7,7 @@ const HeroSection = () => {
       <img
         src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/george-graduation.png`}
         alt="George Lock"
-        className="w-48 h-48 rounded-full border-4 border-green-400 shadow mb-6"
+        className="w-48 h-48 rounded-full border-4 border-green-500 shadow-lg mb-6 object-cover"
       />
       <h1 className="text-4xl font-bold text-gray-900 mb-2">George Lock</h1>
       <h2 className="text-xl font-semibold text-green-600 mb-4">
@@ -17,8 +17,8 @@ const HeroSection = () => {
         Temple University Advertising graduate with proven expertise in growing and managing high-engagement social media accounts with combined following of over 3M+ followers.
       </p>
       <div className="flex gap-4 mb-8">
-        <Link href="#contact" className="px-6 py-2 bg-green-500 text-white rounded-full font-medium shadow hover:bg-green-600 transition">Contact Me</Link>
-        <Link href="#experience" className="px-6 py-2 bg-green-500 text-white rounded-full font-medium shadow hover:bg-green-600 transition">My Experience</Link>
+        <Link href="#contact" className="button-primary">Contact Me</Link>
+        <Link href="#experience" className="button-outline">My Experience</Link>
       </div>
       <div className="flex gap-8 justify-center">
         <div className="bg-green-50 rounded-xl p-6 w-40 text-center shadow">
