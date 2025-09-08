@@ -1,8 +1,9 @@
 import React from 'react';
+import { aboutMe } from '../data/aboutMe';
 
 const AboutSection = () => {
   return (
-    <div className="grid md:grid-cols-2 gap-8">
+    <div className="grid md:grid-cols-2 gap-12">
       {/* Left Side - Text Content */}
       <div className="space-y-6">
         <p className="text-lg text-gray-700">
@@ -22,42 +23,45 @@ const AboutSection = () => {
           experience in paid digital campaigns. These collaborations taught me not only
           how to attract an audience, but how to maintain a loyal community.
         </p>
-      </div>
-      
-      {/* Right Side - Education */}
-      <div className="bg-white rounded-lg shadow-md p-6">
-        <h3 className="text-xl font-bold mb-4 text-gray-900">Education</h3>
         
-        <div className="flex items-center justify-center">
-          <img 
-            src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/temple-diploma.png`}
-            alt="Temple University Diploma" 
-            className="max-w-full h-auto mb-4 rounded shadow"
-          />
-        </div>
-        
-        <div className="mt-4">
-          <h4 className="font-semibold text-green-700">Temple University</h4>
-          <p className="text-gray-700">Bachelor's Degree in Advertising</p>
-          <p className="text-gray-600">2023 - 2025</p>
-        </div>
-        
+        {/* Best Media Plan Award */}
         <div className="mt-8">
-          <h4 className="font-semibold text-green-700 mb-2">BEST MEDIA PLAN SPRING 2025</h4>
-          <div className="flex items-center">
+          <h3 className="text-xl font-bold mb-4 text-green-600">BEST MEDIA PLAN SPRING 2025</h3>
+          <div className="flex flex-col md:flex-row gap-6">
             <img 
               src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/best-media-plan.png`}
               alt="Best Media Plan Award" 
-              className="w-1/2 h-auto rounded shadow mr-4"
+              className="w-full md:w-1/2 h-auto rounded-lg shadow-md"
             />
             <div>
-              <p className="text-sm text-gray-700">
+              <p className="text-gray-700">
                 During my last semester at Temple, my amazing group members and I were able
                 to be awarded the Best Media Plan for Spring 2025. This was an event hosted by
                 my Advanced Media Planning course where some of the industry greats judged
                 our media plan for a hypothetical package Hersheypark was offering.
               </p>
             </div>
+          </div>
+        </div>
+      </div>
+      
+      {/* Right Side - Education */}
+      <div>
+        <h3 className="text-xl font-bold mb-4 text-green-600">Education</h3>
+        
+        <div className="bg-white rounded-lg shadow-md p-6">
+          <div className="flex items-center justify-center mb-6">
+            <img 
+              src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/temple-diploma.png`}
+              alt="Temple University Diploma" 
+              className="w-full h-auto rounded-lg shadow-md"
+            />
+          </div>
+          
+          <div className="mt-6">
+            <h4 className="font-semibold text-green-700 text-lg">Temple University</h4>
+            <p className="text-gray-700">Bachelor's Degree in Advertising</p>
+            <p className="text-gray-600">2023 - 2025</p>
           </div>
         </div>
       </div>
