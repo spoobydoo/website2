@@ -27,11 +27,11 @@ const AboutSection = () => {
         {/* Best Media Plan Award */}
         <div className="mt-8">
           <h3 className="text-xl font-bold mb-4 text-green-600">BEST MEDIA PLAN SPRING 2025</h3>
-          <div className="flex flex-col md:flex-row gap-6">
+          <div className="flex flex-col gap-4">
             <img 
               src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/best-media-plan.png`}
               alt="Best Media Plan Award" 
-              className="w-full md:w-1/2 h-auto rounded-lg shadow-md"
+              className="w-full h-auto rounded-lg shadow-md"
             />
             <div>
               <p className="text-gray-700">
