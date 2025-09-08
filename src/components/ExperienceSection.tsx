@@ -1,19 +1,44 @@
 import React from 'react';
 
 const ExperienceSection = () => {
+  // Create an array of work samples with fixed image paths to match screenshot
+  const workSamples = [
+    { id: 1, path: '01_IMG_4298.png' },
+    { id: 2, path: '02_IMG_0793.png' },
+    { id: 3, path: '03_IMG_4391.png' },
+    { id: 4, path: '04_IMG_4390.png' },
+    { id: 5, path: '05_IMG_3232.png' },
+    { id: 6, path: '06_IMG_0605.png' },
+    { id: 7, path: '07_IMG_0561.png' },
+    { id: 8, path: '08_IMG_9073.png' },
+    { id: 9, path: '09_IMG_0520.png' },
+    { id: 10, path: '10_IMG_9974.png' },
+    { id: 11, path: '11_IMG_9807.png' },
+    { id: 12, path: '12_IMG_8966.png' },
+    { id: 13, path: '13_IMG_7405.png' },
+    { id: 14, path: '14_image0.png' },
+    { id: 15, path: '15_IMG_5440.png' },
+    { id: 16, path: '16_IMG_1920.png' },
+    { id: 17, path: '17_IMG_4818.png' },
+  ];
+
   return (
     <div className="space-y-12">
+      <div className="text-center mb-8">
+        <h2 className="text-3xl font-bold text-green-700 inline-block border-b-2 border-green-200 pb-1">Work Experience</h2>
+      </div>
+      
       {/* Work Samples and Resume Side by Side */}
       <div className="grid md:grid-cols-2 gap-8">
         {/* Work Highlights */}
         <div>
-          <h3 className="text-2xl font-bold mb-4 text-green-600 border-b-2 border-green-100 pb-2">Work Highlights</h3>
-          <div className="grid grid-cols-2 gap-3">
-            {[1, 2, 3, 4, 5, 6].map((num) => (
-              <div key={num} className="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+          <h3 className="text-xl font-semibold mb-4 text-green-600">Work Highlights</h3>
+          <div className="grid grid-cols-3 gap-2">
+            {workSamples.slice(0, 9).map((sample) => (
+              <div key={sample.id} className="overflow-hidden">
                 <img
-                  src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/work/${String(num).padStart(2, '0')}_IMG_${Math.floor(1000 + Math.random() * 9000)}.png`}
-                  alt={`Work sample ${num}`}
+                  src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/work/${sample.path}`}
+                  alt={`Work sample ${sample.id}`}
                   className="w-full h-auto"
                 />
               </div>
@@ -23,42 +48,70 @@ const ExperienceSection = () => {
         
         {/* Resume */}
         <div>
-          <h3 className="text-2xl font-bold mb-4 text-green-600 border-b-2 border-green-100 pb-2">Resume</h3>
-          <div className="bg-white rounded-lg shadow-lg p-4 hover:shadow-xl transition-shadow duration-300">
+          <h3 className="text-xl font-semibold mb-4 text-green-600">Resume</h3>
+          <div>
             <a href={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/docs/resume.pdf`} target="_blank" rel="noopener noreferrer">
               <img
                 src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/resume.png`}
                 alt="Resume"
-                className="w-full h-auto rounded shadow-md"
+                className="w-full h-auto"
               />
-              <div className="text-center mt-4">
-                <span className="button-outline text-sm py-2">View Full Resume</span>
-              </div>
             </a>
           </div>
         </div>
       </div>
       
-      {/* Theme-ing Pages - Now with more prominence */}
-      <div className="mt-12">
-        <h3 className="text-2xl font-bold mb-4 text-green-600 border-b-2 border-green-100 pb-2">Theme-ing Pages</h3>
-        <div className="glass-card rounded-xl p-8 shadow-lg">
-          <p className="text-gray-700 mb-6 text-lg leading-relaxed">
-            When creating posts for Instagram, I focus on maintaining a cohesive theme across the page, which is key to building a recognizable brand identity. I start by defining the visual style — this includes consistent use of colors, fonts, and imagery that align with the overall vibe of the page. I also consider the type of content that resonates with the target audience, whether it's educational, entertaining, or aspirational.
-          </p>
-          <p className="text-gray-700 mb-6 text-lg leading-relaxed">
-            To help the page go viral, I prioritize content that sparks engagement, like asking questions, using popular hashtags, or creating challenges that encourage followers to interact. I post at optimal times to maximize visibility and make use of trends and viral sounds when appropriate. Additionally, I analyze audience insights to refine the strategy and keep the content fresh and engaging, ensuring it has shareability, which is essential for virality.
-          </p>
-          <div className="grid grid-cols-3 gap-4 mt-8">
-            {[7, 8, 9].map((num) => (
-              <div key={num} className="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+      {/* Additional sections based on the screenshot */}
+      <div className="grid md:grid-cols-2 gap-8">
+        <div>
+          <h3 className="text-xl font-semibold mb-4 text-green-600">Insights Overview</h3>
+          <div className="grid grid-cols-3 gap-2">
+            {workSamples.slice(9, 12).map((sample) => (
+              <div key={sample.id} className="overflow-hidden">
                 <img
-                  src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/work/${String(num).padStart(2, '0')}_IMG_${Math.floor(1000 + Math.random() * 9000)}.png`}
-                  alt={`Work sample ${num}`}
+                  src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/work/${sample.path}`}
+                  alt={`Insights overview ${sample.id}`}
                   className="w-full h-auto"
                 />
               </div>
             ))}
+          </div>
+        </div>
+        
+        <div>
+          <h3 className="text-xl font-semibold mb-4 text-green-600">Accounts Reached</h3>
+          <div className="grid grid-cols-3 gap-2">
+            {workSamples.slice(12, 15).map((sample) => (
+              <div key={sample.id} className="overflow-hidden">
+                <img
+                  src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/work/${sample.path}`}
+                  alt={`Accounts reached ${sample.id}`}
+                  className="w-full h-auto"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      
+      <div className="grid md:grid-cols-2 gap-8">
+        {/* Last two rows of screenshots */}
+        <div>
+          <div className="overflow-hidden">
+            <img
+              src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/work/${workSamples[15].path}`}
+              alt={`Work sample ${workSamples[15].id}`}
+              className="w-full h-auto"
+            />
+          </div>
+        </div>
+        <div>
+          <div className="overflow-hidden">
+            <img
+              src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/work/${workSamples[16].path}`}
+              alt={`Work sample ${workSamples[16].id}`}
+              className="w-full h-auto"
+            />
           </div>
         </div>
       </div>

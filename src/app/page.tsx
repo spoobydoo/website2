@@ -35,7 +35,6 @@ export default function Home() {
       {/* Experience Section */}
       <section id="experience" className="py-16 bg-white">
         <div className="container mx-auto px-4 max-w-6xl">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Work Experience</h2>
           <ExperienceSection />
         </div>
       </section>
