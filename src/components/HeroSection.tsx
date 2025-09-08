@@ -17,26 +17,8 @@ const HeroSection = () => {
         Temple University Advertising graduate with proven expertise in growing and managing high-engagement social media accounts with combined following of over 3M+ followers.
       </p>
       <div className="flex gap-4 mb-8">
-        <Link 
-          href="#contact" 
-          className="button-primary"
-          onClick={(e) => {
-            e.preventDefault();
-            document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-          }}
-        >
-          Contact Me
-        </Link>
-        <Link 
-          href="#experience" 
-          className="button-outline"
-          onClick={(e) => {
-            e.preventDefault();
-            document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' });
-          }}
-        >
-          My Experience
-        </Link>
+        <Link href="#contact" className="button-primary">Contact Me</Link>
+        <Link href="#experience" className="button-outline">My Experience</Link>
       </div>
       <div className="flex gap-8 justify-center">
         <div className="bg-green-50 rounded-xl p-6 w-40 text-center shadow">

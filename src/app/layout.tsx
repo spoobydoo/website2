@@ -1,4 +1,5 @@
-import type { Metadata } from 'next';
+'use client';
+
 import { Poppins } from 'next/font/google';
 import './globals.css';
 import Navigation from '../components/Navigation';
@@ -10,7 +11,8 @@ const poppins = Poppins({
   variable: '--font-poppins',
 });
 
-export const metadata: Metadata = {
+// Metadata is not used in client components, but we'll keep the content for reference
+const metadata = {
   title: 'George Lock - Social Media & Advertising Expert',
   description: 'Temple University Advertising graduate with extensive experience in social media management, content creation, and digital marketing strategies that drive engagement and growth.',
   keywords: 'George Lock, social media expert, advertising, Temple University, portfolio, content creation',

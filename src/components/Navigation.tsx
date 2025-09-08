@@ -58,10 +58,6 @@ const Navigation = () => {
           <Link 
             href="#home" 
             className="group flex items-center space-x-3"
-            onClick={(e) => {
-              e.preventDefault();
-              document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' });
-            }}
           >
             <div className="relative">
               <div className={`relative w-12 h-12 bg-white rounded-full 
@@ -83,10 +79,6 @@ const Navigation = () => {
             <Link 
               href="#home" 
               className={`relative px-1 py-2 group text-white hover:text-gray-100 transition-colors duration-300 ${isActive('home') ? 'font-medium' : ''}`}
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' });
-              }}
             >
               <span className="relative z-10">Home</span>
               <span className={`absolute bottom-0 left-0 h-0.5 bg-white rounded-full transition-all duration-300 ${isActive('home') ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
@@ -94,10 +86,6 @@ const Navigation = () => {
             <Link 
               href="#about" 
               className={`relative px-1 py-2 group text-white hover:text-gray-100 transition-colors duration-300 ${isActive('about') ? 'font-medium' : ''}`}
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
-              }}
             >
               <span className="relative z-10">About Me</span>
               <span className={`absolute bottom-0 left-0 h-0.5 bg-white rounded-full transition-all duration-300 ${isActive('about') ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
@@ -105,10 +93,6 @@ const Navigation = () => {
             <Link 
               href="#experience" 
               className={`relative px-1 py-2 group text-white hover:text-gray-100 transition-colors duration-300 ${isActive('experience') ? 'font-medium' : ''}`}
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' });
-              }}
             >
               <span className="relative z-10">Work Experience</span>
               <span className={`absolute bottom-0 left-0 h-0.5 bg-white rounded-full transition-all duration-300 ${isActive('experience') ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
@@ -116,10 +100,6 @@ const Navigation = () => {
             <Link 
               href="#contact" 
               className={`relative px-1 py-2 group text-white hover:text-gray-100 transition-colors duration-300 ${isActive('contact') ? 'font-medium' : ''}`}
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-              }}
             >
               <span className="relative z-10">Contact</span>
               <span className={`absolute bottom-0 left-0 h-0.5 bg-white rounded-full transition-all duration-300 ${isActive('contact') ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
@@ -146,44 +126,28 @@ const Navigation = () => {
               <Link 
                 href="#home" 
                 className={`text-white py-2 px-2 rounded-lg hover:bg-white/10 transition-colors duration-300 ${isActive('home') ? 'bg-white/10 font-medium' : ''}`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' });
-                  setIsMobileMenuOpen(false);
-                }}
+                onClick={() => setIsMobileMenuOpen(false)}
               >
                 Home
               </Link>
               <Link 
                 href="#about" 
                 className={`text-white py-2 px-2 rounded-lg hover:bg-white/10 transition-colors duration-300 ${isActive('about') ? 'bg-white/10 font-medium' : ''}`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
-                  setIsMobileMenuOpen(false);
-                }}
+                onClick={() => setIsMobileMenuOpen(false)}
               >
                 About Me
               </Link>
               <Link 
                 href="#experience" 
                 className={`text-white py-2 px-2 rounded-lg hover:bg-white/10 transition-colors duration-300 ${isActive('experience') ? 'bg-white/10 font-medium' : ''}`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' });
-                  setIsMobileMenuOpen(false);
-                }}
+                onClick={() => setIsMobileMenuOpen(false)}
               >
                 Work Experience
               </Link>
               <Link 
                 href="#contact" 
                 className={`text-white py-2 px-2 rounded-lg hover:bg-white/10 transition-colors duration-300 ${isActive('contact') ? 'bg-white/10 font-medium' : ''}`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-                  setIsMobileMenuOpen(false);
-                }}
+                onClick={() => setIsMobileMenuOpen(false)}
               >
                 Contact
               </Link>

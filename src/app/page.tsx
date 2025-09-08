@@ -18,10 +18,6 @@ export default function Home() {
         <Link 
           href="#about"
           className="animate-bounce flex flex-col items-center text-green-600 hover:text-green-700 transition-colors"
-          onClick={(e) => {
-            e.preventDefault();
-            document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
-          }}
         >
           <span className="mb-2 text-sm font-medium">Scroll Down</span>
           <ArrowDown size={20} />
