@@ -23,17 +23,16 @@ const ExperienceSection = () => {
   ];
 
   return (
-    <div className="space-y-12">
-      <div className="text-center mb-8">
+    <div>
+      <div className="text-center mb-6">
         <h2 className="text-3xl font-bold text-green-700 inline-block border-b-2 border-green-200 pb-1">Work Experience</h2>
       </div>
       
-      {/* Work Samples and Resume Side by Side */}
-      <div className="grid md:grid-cols-2 gap-8">
-        {/* Work Highlights */}
-        <div>
-          <h3 className="text-xl font-semibold mb-4 text-green-600">Work Highlights</h3>
-          <div className="grid grid-cols-3 gap-2">
+      <div className="grid grid-cols-2 gap-6">
+        {/* Left side - Work samples grid */}
+        <div className="space-y-6">
+          <div className="text-xl font-semibold mb-2">Work Highlights</div>
+          <div className="grid grid-cols-3 gap-1">
             {workSamples.slice(0, 9).map((sample) => (
               <div key={sample.id} className="overflow-hidden">
                 <img
@@ -44,59 +43,31 @@ const ExperienceSection = () => {
               </div>
             ))}
           </div>
-        </div>
-        
-        {/* Resume */}
-        <div>
-          <h3 className="text-xl font-semibold mb-4 text-green-600">Resume</h3>
-          <div>
-            <a href={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/docs/resume.pdf`} target="_blank" rel="noopener noreferrer">
-              <img
-                src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/resume.png`}
-                alt="Resume"
-                className="w-full h-auto"
-              />
-            </a>
-          </div>
-        </div>
-      </div>
-      
-      {/* Additional sections based on the screenshot */}
-      <div className="grid md:grid-cols-2 gap-8">
-        <div>
-          <h3 className="text-xl font-semibold mb-4 text-green-600">Insights Overview</h3>
-          <div className="grid grid-cols-3 gap-2">
+          
+          <div className="grid grid-cols-3 gap-1">
             {workSamples.slice(9, 12).map((sample) => (
               <div key={sample.id} className="overflow-hidden">
                 <img
                   src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/work/${sample.path}`}
-                  alt={`Insights overview ${sample.id}`}
+                  alt={`Work sample ${sample.id}`}
                   className="w-full h-auto"
                 />
               </div>
             ))}
           </div>
-        </div>
-        
-        <div>
-          <h3 className="text-xl font-semibold mb-4 text-green-600">Accounts Reached</h3>
-          <div className="grid grid-cols-3 gap-2">
+          
+          <div className="grid grid-cols-3 gap-1">
             {workSamples.slice(12, 15).map((sample) => (
               <div key={sample.id} className="overflow-hidden">
                 <img
                   src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/work/${sample.path}`}
-                  alt={`Accounts reached ${sample.id}`}
+                  alt={`Work sample ${sample.id}`}
                   className="w-full h-auto"
                 />
               </div>
             ))}
           </div>
-        </div>
-      </div>
-      
-      <div className="grid md:grid-cols-2 gap-8">
-        {/* Last two rows of screenshots */}
-        <div>
+          
           <div className="overflow-hidden">
             <img
               src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/work/${workSamples[15].path}`}
@@ -105,8 +76,19 @@ const ExperienceSection = () => {
             />
           </div>
         </div>
-        <div>
-          <div className="overflow-hidden">
+        
+        {/* Right side - Resume */}
+        <div className="space-y-6">
+          <div className="text-xl font-semibold mb-2">Resume</div>
+          <a href={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/docs/resume.pdf`} target="_blank" rel="noopener noreferrer">
+            <img
+              src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/resume.png`}
+              alt="Resume"
+              className="w-full h-auto"
+            />
+          </a>
+          
+          <div className="overflow-hidden mt-auto">
             <img
               src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/work/${workSamples[16].path}`}
               alt={`Work sample ${workSamples[16].id}`}
