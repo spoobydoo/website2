@@ -30,6 +30,14 @@ jobs:
 
       - name: Create .nojekyll file
         run: touch out/.nojekyll
+        
+      - name: Fix asset paths
+        run: |
+          echo "Fixing asset paths in HTML files..."
+          find out -name "*.html" -exec sed -i 's|"/_next/|"/website2/_next/|g' {} \;
+          find out -name "*.html" -exec sed -i "s|'/_next/|'/website2/_next/|g" {} \;
+          echo "Creating debug info..."
+          echo "DEPLOYMENT INFO - Deployed at $(date)" > out/deployment-info.txt
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
