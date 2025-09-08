@@ -3,11 +3,6 @@
 import React from 'react';
 import { aboutMe } from '../../data/aboutMe';
 
-export const metadata = {
-  title: 'About Me | George Lock - Social Media Expert',
-  description: 'Learn about George Lock\'s background, education, and expertise in social media and digital marketing.',
-};
-
 export default function AboutPage() {
   return (
     <div className="min-h-screen py-20 px-6">
