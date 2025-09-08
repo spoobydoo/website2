@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 15, 23, 42;
-  --background-end-rgb: 88, 28, 135;
-  --accent-purple: 139, 92, 246;
-  --accent-pink: 236, 72, 153;
-  --text-primary: 255, 255, 255;
-  --text-secondary: 209, 213, 219;
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 255, 255, 255;
+  --background-end-rgb: 255, 255, 255;
+  --accent-green: 16, 185, 129; /* Green-500 */
+  --accent-light-green: 209, 250, 229; /* Green-100 */
+  --text-primary: 17, 24, 39; /* Gray-900 */
+  --text-secondary: 75, 85, 99; /* Gray-600 */
 }
 
 @keyframes gradient-animation {
@@ -61,15 +61,7 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-    -45deg,
-    rgb(var(--background-start-rgb)),
-    rgb(var(--background-end-rgb)),
-    rgb(29, 35, 65),
-    rgb(70, 20, 100)
-  );
-  background-size: 400% 400%;
-  animation: gradient-animation 15s ease infinite;
+  background: white;
   min-height: 100vh;
   font-feature-settings: "salt";
   text-rendering: optimizeLegibility;
@@ -88,16 +80,16 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(15, 23, 42, 0.3);
+  background: rgba(220, 252, 231, 0.3); /* Green-100 */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(139, 92, 246, 0.5);
+  background: rgba(16, 185, 129, 0.5); /* Green-500 */
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(139, 92, 246, 0.8);
+  background: rgba(16, 185, 129, 0.8); /* Green-500 */
 }
 
 /* Custom utility classes */
@@ -107,47 +99,48 @@ html {
 
 /* Glass card effect */
 .glass-card {
-  background: rgba(15, 23, 42, 0.2);
+  background: rgba(236, 253, 245, 0.5); /* Green-50 */
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(16, 185, 129, 0.1); /* Green-500 */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
 }
 
 .glass-card:hover {
-  border-color: rgba(139, 92, 246, 0.3);
-  box-shadow: 0 8px 32px rgba(139, 92, 246, 0.2);
+  border-color: rgba(16, 185, 129, 0.3); /* Green-500 */
+  box-shadow: 0 8px 32px rgba(16, 185, 129, 0.1); /* Green-500 */
 }
 
 /* Button styles */
 .button-primary {
   padding: 0.75rem 1.5rem;
-  background-image: linear-gradient(to right, #8b5cf6, #ec4899);
+  background-color: rgb(16, 185, 129); /* Green-500 */
   color: white;
   font-weight: 500;
   border-radius: 9999px;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 14px rgba(139, 92, 246, 0.4);
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);
 }
 
 .button-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.6);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.6);
+  background-color: rgb(5, 150, 105); /* Green-600 */
 }
 
 .button-outline {
   padding: 0.75rem 1.5rem;
   background-color: transparent;
-  border: 1px solid rgba(139, 92, 246, 0.6);
-  color: rgb(216, 180, 254);
+  border: 1px solid rgba(16, 185, 129, 0.6); /* Green-500 */
+  color: rgb(16, 185, 129); /* Green-500 */
   font-weight: 500;
   border-radius: 9999px;
   transition: all 0.3s ease;
 }
 
 .button-outline:hover {
-  background-color: rgba(139, 92, 246, 0.1);
-  border-color: rgba(139, 92, 246, 0.8);
+  background-color: rgba(16, 185, 129, 0.1);
+  border-color: rgba(16, 185, 129, 0.8);
   transform: translateY(-2px);
 }
 
@@ -168,7 +161,7 @@ html {
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-  background-image: linear-gradient(to right, #8b5cf6, #ec4899);
+  background-image: linear-gradient(to right, rgb(16, 185, 129), rgb(5, 150, 105)); /* Green-500 to Green-600 */
 }
 
 /* Project card hover effect */
@@ -188,24 +181,24 @@ html {
   animation: pulse 3s ease-in-out infinite;
 }
 
-/* Glass card effect */
+/* Glass card effect - green */
 .glass-card {
-  background: rgba(255, 255, 255, 0.07);
+  background: rgba(236, 253, 245, 0.7); /* Green-50 with opacity */
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.2); /* Green-500 */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
 }
 
-/* Button styles */
+/* Button styles - tailwind */
 .button-primary {
-  @apply px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full font-medium 
-  transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/30 hover:from-purple-700 hover:to-pink-700;
+  @apply px-6 py-3 bg-green-500 text-white rounded-full font-medium 
+  transition-all duration-300 hover:shadow-lg hover:shadow-green-500/30 hover:bg-green-600;
 }
 
 .button-outline {
-  @apply px-6 py-3 bg-transparent border border-purple-500 text-purple-300 rounded-full font-medium 
-  transition-all duration-300 hover:bg-purple-500/10 hover:shadow-lg hover:shadow-purple-500/20;
+  @apply px-6 py-3 bg-transparent border border-green-500 text-green-600 rounded-full font-medium 
+  transition-all duration-300 hover:bg-green-500/10 hover:shadow-lg hover:shadow-green-500/20;
 }
 
 /* Underline animation for navigation */
@@ -220,7 +213,7 @@ html {
   height: 2px;
   bottom: -4px;
   left: 0;
-  background: linear-gradient(to right, rgb(var(--accent-purple)), rgb(var(--accent-pink)));
+  background: rgb(16, 185, 129); /* Green-500 */
   transition: width 0.3s ease;
 }
 

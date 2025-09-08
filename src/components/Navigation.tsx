@@ -41,8 +41,8 @@ const Navigation = () => {
     <nav 
       className={`fixed top-0 w-full z-50 transition-all duration-500 ${
         isScrolled 
-          ? 'bg-slate-900/80 backdrop-blur-xl shadow-lg border-b border-white/5 py-3' 
-          : 'bg-transparent py-6'
+          ? 'bg-green-500 shadow-lg py-3' 
+          : 'bg-green-500 py-6'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6">
@@ -50,18 +50,17 @@ const Navigation = () => {
           {/* Logo */}
           <Link href="/" className="group flex items-center space-x-3">
             <div className="relative">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full blur-md opacity-70 group-hover:opacity-100 transition-opacity"></div>
-              <div className={`relative w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full 
+              <div className={`relative w-12 h-12 bg-white rounded-full 
                   flex items-center justify-center transform transition-all duration-300 
                   ${isScrolled ? 'scale-90' : 'scale-100'} 
-                  border border-white/20 group-hover:border-white/40`}>
-                <span className="text-white font-bold text-xl">GL</span>
+                  border-2 border-white group-hover:border-white/90`}>
+                <span className="text-green-600 font-bold text-xl">GL</span>
               </div>
             </div>
             <div className="flex flex-col">
               <span className={`text-white font-bold transition-all duration-300 tracking-tight
                 ${isScrolled ? 'text-xl' : 'text-2xl'}`}>George Lock</span>
-              <span className="text-purple-300 text-xs font-medium">Digital Strategist</span>
+              <span className="text-white text-xs font-medium">Digital Strategist</span>
             </div>
           </Link>
 
@@ -73,9 +72,9 @@ const Navigation = () => {
             >
               <span className="relative z-10">Home</span>
               {isActive('/') && (
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full"></span>
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-white rounded-full"></span>
               )}
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full group-hover:w-full transition-all duration-300"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white rounded-full group-hover:w-full transition-all duration-300"></span>
             </Link>
             <Link 
               href="/about" 
