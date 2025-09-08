@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" co    .button {
+      display: inline-block;
+      padding: 0.75rem 2rem;
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 500;
+      margin: 0 0.5rem;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+      transition: all 0.3s ease;
+    }
+    .button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(16, 185, 129, 0.6);
+    }ice-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>George Lock - Social Media Expert</title>
+  <meta name="description" content="Professional portfolio for George Lock, social media expert and digital advertising strategist.">
+  <link rel="canonical" href="https://wftaylor28.github.io/George-Port/">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: white;
+      color: #333333;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+    }
+    .navbar {
+      background-color: #00b179; /* Brighter green header to match screenshot */
+      padding: 1rem 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: white;
+      text-decoration: none;
+    }
+    .nav-tabs {
+      display: flex;
+      gap: 2rem;
+    }
+    .nav-tab {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 0;
+      border-bottom: 2px solid transparent;
+      transition: all 0.3s ease;
+    }
+    .nav-tab:hover, .nav-tab.active {
+      border-bottom: 2px solid white;
+    }
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    header {
+      text-align: center;
+      padding: 4rem 0 2rem 0;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #047857; /* Darker green for heading */
+    }
+    h2 {
+      color: #10b981; /* Medium green for subheading */
+      margin-bottom: 2rem;
+    }
+    .profile-circle {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      margin: 0 auto;
+      overflow: hidden;
+      border: 4px solid rgba(16, 185, 129, 0.3);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    .profile-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border: 4px solid rgba(16, 185, 129, 0.2);
+      box-shadow: 0 10px 30px rgba(16, 185, 129, 0.2);
+    }
+    .cta {
+      margin-top: 2rem;
+    }
+    .button {
+      display: inline-block;
+      padding: 0.75rem 2rem;
+      background: linear-gradient(135deg, #059669, #10b981);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 500;
+      margin: 0 0.5rem;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+      transition: all 0.3s ease;
+    }
+    .button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(16, 185, 129, 0.6);
+    }
+    section {
+      margin-bottom: 4rem;
+    }
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+    .stat-card {
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 2rem;
+      border-radius: 16px;
+      text-align: center;
+      min-width: 200px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    }
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #059669;
+    }
+    .section {
+      padding: 4rem 0;
+      border-top: 1px solid rgba(16, 185, 129, 0.2);
+      scroll-margin-top: 80px; /* For smooth scrolling to sections */
+    }
+    .section-title {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      color: #047857;
+      font-size: 2.5rem;
+      position: relative;
+    }
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(90deg, #10b981, #059669);
+      border-radius: 3px;
+    }
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .about-text p {
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+      color: #444;
+    }
+    .education-item {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 20px rgba(16, 185, 129, 0.15);
+    }
+    .education-item h4 {
+      color: #059669;
+      margin-bottom: 0.5rem;
+    }
+    .university-logo {
+      width: 100px;
+      height: 100px;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    .experience-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .accounts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .account-card {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 20px rgba(16, 185, 129, 0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .account-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(16, 185, 129, 0.25);
+    }
+    .account-card h4 {
+      color: #059669;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid rgba(16, 185, 129, 0.2);
+      padding-bottom: 0.5rem;
+    }
+    .account-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem auto;
+      color: white;
+      font-weight: bold;
+      font-size: 24px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    .instagram {
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    }
+    .tiktok {
+      background: linear-gradient(45deg, #000000, #25F4EE, #FE2C55, #000000);
+    }
+    .facebook {
+      background: #1877F2;
+    }
+    .contact-content {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-top: 2rem;
+    }
+    .contact-item {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 20px rgba(16, 185, 129, 0.15);
+      min-width: 200px;
+    }
+    .contact-item h4 {
+      color: #059669;
+      margin-bottom: 0.5rem;
+    }
+    .contact-item a {
+      color: #333;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .contact-item a:hover {
+      color: #059669;
+    }
+    /* Add smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+    .footer {
+      text-align: center;
+      padding: 2rem 0;
+      border-top: 1px solid rgba(16, 185, 129, 0.2);
+      color: #666;
+      background-color: rgba(16, 185, 129, 0.05);
+    }
+    
+    /* Mobile responsive styles */
+    @media (max-width: 768px) {
+      .about-content, .contact-info {
+        grid-template-columns: 1fr;
+      }
+      .nav-tabs {
+        gap: 1rem;
+      }
+      .contact-info {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .profile-circle {
+        width: 200px;
+        height: 200px;
+      }
+      h1 {
+        font-size: 2.5rem;
+      }
+      .university-logo {
+        width: 80px;
+        height: 80px;
+      }
+    }
+  </style>
+  <script>
+    // Wait for DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get all navigation tabs
+      const navTabs = document.querySelectorAll('.nav-tab');
+      
+      // Add click event listeners to each tab
+      navTabs.forEach(tab => {
+        tab.addEventListener('click', function(e) {
+          // Remove active class from all tabs
+          navTabs.forEach(t => t.classList.remove('active'));
+          
+          // Add active class to clicked tab
+          this.classList.add('active');
+        });
+      });
+
+      // Function to handle scroll and update active tab
+      function handleScroll() {
+        const sections = document.querySelectorAll('.container[id]');
+        const scrollPosition = window.scrollY + 100; // Offset for navbar height
+        
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.offsetHeight;
+          const sectionId = section.getAttribute('id');
+          
+          if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            // Remove active class from all tabs
+            navTabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Add active class to current section's tab
+            const activeTab = document.querySelector(`.nav-tab[href="#${sectionId}"]`);
+            if (activeTab) {
+              activeTab.classList.add('active');
+            }
+          }
+        });
+      }
+
+      // Add scroll event listener
+      window.addEventListener('scroll', handleScroll);
+      
+      // Handle initial state
+      handleScroll();
+    });
+  </script>
+</head>
+<body>
+  <div class="navbar">
+    <div class="container nav-container">
+      <a href="#home" class="logo">George Lock</a>
+      <div class="nav-tabs">
+        <a href="#home" class="nav-tab active">Home</a>
+        <a href="#about" class="nav-tab">About Me</a>
+        <a href="#experience" class="nav-tab">Work Experience</a>
+        <a href="#contact" class="nav-tab">Contact</a>
+      </div>
+    </div>
+  </div>
+  
+  <div id="home" class="container">
+    <header>
+      <div class="profile-circle">
+    <!-- Corrected image path for GitHub Pages -->
+    <img src="/images/george-graduation.jpg" alt="George Lock" class="profile-image">
+      </div>
+      <h1 style="color: #333;">George Lock</h1>
+      <h2>Social Media Expert & Digital Strategist</h2>
+      <p style="color: #555;">Temple University Advertising graduate with proven expertise in growing and managing high-engagement social media accounts</p>
+      
+      <div class="cta">
+        <a href="#contact" class="button">Contact Me</a>
+        <a href="#experience" class="button">My Experience</a>
+      </div>
+    </header>
+    
+    <section>
+      <div class="stats">
+        <div class="stat-card">
+          <div class="stat-number">2.5M+</div>
+          <div>Combined Followers</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">10+</div>
+          <div>Managed Accounts</div>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+  <div id="about" class="container section">
+    <h2 class="section-title">About Me</h2>
+    <div class="about-content">
+      <div class="about-text">
+        <p>
+          I am a Temple University graduate with a passion for social media management
+          and digital marketing. I specialize in creating engaging content that helps brands connect
+          with their audience and build meaningful relationships online.
+        </p>
+        <p>
+          With a strong educational background and practical experience in managing social media accounts,
+          I bring a strategic approach to digital presence, helping businesses grow their online footprint.
+        </p>
+      </div>
+      <div class="education">
+        <h3>Education</h3>
+        <div class="education-item">
+            <!-- Corrected image path for GitHub Pages -->
+            <img src="/images/temple-diploma.jpg" alt="Temple University Diploma" style="max-width: 100%; border-radius: 8px; margin-bottom: 1rem;">
+          <h4>Temple University</h4>
+          <p>Bachelor's Degree in Advertising</p>
+          <p>2019 - 2023</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="experience" class="container section">
+    <h2 class="section-title">Work Experience</h2>
+    <div class="experience-content">
+      <h3>Social Media Accounts Managed</h3>
+      <div class="accounts-grid">
+        <div class="account-card">
+          <div class="account-icon instagram">
+            <i>In</i>
+          </div>
+          <h4>Instagram Business Page</h4>
+          <p>Grew followers from 500 to 50,000 in 8 months</p>
+          <p>Engagement rate: 8.5%</p>
+        </div>
+        <div class="account-card">
+          <div class="account-icon tiktok">
+            <i>Tt</i>
+          </div>
+          <h4>TikTok Brand Account</h4>
+          <p>Achieved 2M+ combined views</p>
+          <p>10+ viral videos with 100K+ views each</p>
+        </div>
+        <div class="account-card">
+          <div class="account-icon facebook">
+            <i>Fb</i>
+          </div>
+          <h4>Facebook Business Page</h4>
+          <p>Managed ad campaigns with 300% ROI</p>
+          <p>Built community of 25,000+ engaged users</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="contact" class="container section">
+    <h2 class="section-title">Contact Me</h2>
+    <div class="contact-content">
+      <p>I'm always open to discussing new projects, opportunities, or partnerships.</p>
+      <div class="contact-info">
+        <div class="contact-item">
+          <h4>Email</h4>
+          <a href="mailto:georgelock@temple.edu">georgelock@temple.edu</a>
+        </div>
+        <div class="contact-item">
+          <h4>LinkedIn</h4>
+          <a href="https://linkedin.com/in/george-lock" target="_blank">linkedin.com/in/george-lock</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <footer class="footer">
+    <p>&copy; 2025 George Lock. All rights reserved.</p>
+  </footer>
+</body>
+</html>
