@@ -1,10 +1,11 @@
 import React from 'react';
+import Link from 'next/link';
 
 const HeroSection = () => {
   return (
-    <section className="flex flex-col items-center justify-center py-12 bg-white">
+    <section className="flex flex-col items-center justify-center py-16 pt-28 bg-white">
       <img
-        src="/images/george-graduation.png"
+        src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/george-graduation.png`}
         alt="George Lock"
         className="w-48 h-48 rounded-full border-4 border-green-400 shadow mb-6"
       />
@@ -16,8 +17,8 @@ const HeroSection = () => {
         Temple University Advertising graduate with proven expertise in growing and managing high-engagement social media accounts with combined following of over 3M+ followers.
       </p>
       <div className="flex gap-4 mb-8">
-        <a href="/contact" className="px-6 py-2 bg-green-500 text-white rounded-full font-medium shadow hover:bg-green-600 transition">Contact Me</a>
-        <a href="/experience" className="px-6 py-2 bg-green-500 text-white rounded-full font-medium shadow hover:bg-green-600 transition">My Experience</a>
+        <Link href="#contact" className="px-6 py-2 bg-green-500 text-white rounded-full font-medium shadow hover:bg-green-600 transition">Contact Me</Link>
+        <Link href="#experience" className="px-6 py-2 bg-green-500 text-white rounded-full font-medium shadow hover:bg-green-600 transition">My Experience</Link>
       </div>
       <div className="flex gap-8 justify-center">
         <div className="bg-green-50 rounded-xl p-6 w-40 text-center shadow">
