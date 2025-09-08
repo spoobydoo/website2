@@ -34,11 +34,11 @@ const ExperienceSection = () => {
           <div className="text-xl font-semibold mb-2">Work Highlights</div>
           <div className="grid grid-cols-3 gap-1">
             {workSamples.slice(0, 9).map((sample) => (
-              <div key={sample.id} className="overflow-hidden">
+              <div key={sample.id} className="aspect-square overflow-hidden bg-gray-100">
                 <img
                   src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/work/${sample.path}`}
                   alt={`Work sample ${sample.id}`}
-                  className="w-full h-auto"
+                  className="w-full h-full object-cover"
                 />
               </div>
             ))}
@@ -46,11 +46,11 @@ const ExperienceSection = () => {
           
           <div className="grid grid-cols-3 gap-1">
             {workSamples.slice(9, 12).map((sample) => (
-              <div key={sample.id} className="overflow-hidden">
+              <div key={sample.id} className="aspect-square overflow-hidden bg-gray-100">
                 <img
                   src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/work/${sample.path}`}
                   alt={`Work sample ${sample.id}`}
-                  className="w-full h-auto"
+                  className="w-full h-full object-cover"
                 />
               </div>
             ))}
@@ -58,21 +58,21 @@ const ExperienceSection = () => {
           
           <div className="grid grid-cols-3 gap-1">
             {workSamples.slice(12, 15).map((sample) => (
-              <div key={sample.id} className="overflow-hidden">
+              <div key={sample.id} className="aspect-square overflow-hidden bg-gray-100">
                 <img
                   src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/work/${sample.path}`}
                   alt={`Work sample ${sample.id}`}
-                  className="w-full h-auto"
+                  className="w-full h-full object-cover"
                 />
               </div>
             ))}
           </div>
           
-          <div className="overflow-hidden">
+          <div className="aspect-w-16 aspect-h-9 overflow-hidden bg-gray-100">
             <img
               src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/work/${workSamples[15].path}`}
               alt={`Work sample ${workSamples[15].id}`}
-              className="w-full h-auto"
+              className="w-full h-full object-cover"
             />
           </div>
         </div>
@@ -80,19 +80,19 @@ const ExperienceSection = () => {
         {/* Right side - Resume */}
         <div className="space-y-6">
           <div className="text-xl font-semibold mb-2">Resume</div>
-          <a href={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/docs/resume.pdf`} target="_blank" rel="noopener noreferrer">
+          <a href={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/docs/resume.pdf`} target="_blank" rel="noopener noreferrer" className="block">
             <img
               src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/resume.png`}
               alt="Resume"
-              className="w-full h-auto"
+              className="w-full h-auto object-contain bg-white"
             />
           </a>
           
-          <div className="overflow-hidden mt-auto">
+          <div className="aspect-w-16 aspect-h-9 overflow-hidden bg-gray-100">
             <img
               src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/work/${workSamples[16].path}`}
               alt={`Work sample ${workSamples[16].id}`}
-              className="w-full h-auto"
+              className="w-full h-full object-cover"
             />
           </div>
         </div>
