@@ -28,50 +28,52 @@ const ExperienceSection = () => {
         <h2 className="text-3xl font-bold text-green-700 inline-block border-b-2 border-green-200 pb-1">Work Experience</h2>
       </div>
       
-      <div className="grid grid-cols-2 gap-6">
-        {/* Left side - Work Highlights */}
-        <div>
-          <div className="text-xl font-semibold mb-2">Work Highlights</div>
-          <div className="grid grid-cols-3 gap-1">
-            {workSamples.slice(0, 15).map((sample) => (
-              <div key={sample.id} className="aspect-square overflow-hidden bg-gray-100">
-                <img
-                  src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/work/${sample.path}`}
-                  alt={`Work sample ${sample.id}`}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            ))}
-            <div className="aspect-square overflow-hidden bg-gray-100">
-              <img
-                src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/work/${workSamples[15].path}`}
-                alt={`Work sample ${workSamples[15].id}`}
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
+      <div className="grid grid-cols-6 gap-1">
+        <div className="col-span-6 flex justify-between">
+          <div className="text-xl font-semibold">Work Highlights</div>
+          <div className="text-xl font-semibold">Resume</div>
         </div>
         
-        {/* Right side - Resume */}
-        <div>
-          <div className="text-xl font-semibold mb-2">Resume</div>
-          <a href={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/docs/resume.pdf`} target="_blank" rel="noopener noreferrer" className="block mb-1">
+        {/* First 3 work samples - row 1 */}
+        {workSamples.slice(0, 3).map((sample) => (
+          <div key={sample.id} className="aspect-square overflow-hidden bg-gray-100">
+            <img
+              src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/work/${sample.path}`}
+              alt={`Work sample ${sample.id}`}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        ))}
+        
+        {/* Resume - spans 3 columns */}
+        <div className="col-span-3 row-span-5">
+          <a href={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/docs/resume.pdf`} target="_blank" rel="noopener noreferrer" className="block h-full">
             <img
               src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/resume.png`}
               alt="Resume"
-              className="w-full h-auto object-contain bg-white"
+              className="w-full h-full object-contain bg-white"
             />
           </a>
-          
-          <div className="grid grid-cols-1 gap-1">
-            <div className="aspect-square overflow-hidden bg-gray-100">
-              <img
-                src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/work/${workSamples[16].path}`}
-                alt={`Work sample ${workSamples[16].id}`}
-                className="w-full h-full object-cover"
-              />
-            </div>
+        </div>
+        
+        {/* Remaining work samples - rows 2-6 */}
+        {workSamples.slice(3, 16).map((sample) => (
+          <div key={sample.id} className="aspect-square overflow-hidden bg-gray-100">
+            <img
+              src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/work/${sample.path}`}
+              alt={`Work sample ${sample.id}`}
+              className="w-full h-full object-cover"
+            />
           </div>
+        ))}
+        
+        {/* Last work sample - row 6 */}
+        <div className="aspect-square overflow-hidden bg-gray-100">
+          <img
+            src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/work/${workSamples[16].path}`}
+            alt={`Work sample ${workSamples[16].id}`}
+            className="w-full h-full object-cover"
+          />
         </div>
       </div>
     </div>
