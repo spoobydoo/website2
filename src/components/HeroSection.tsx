@@ -7,7 +7,7 @@ const HeroSection = () => {
       <img
         src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/george-graduation.png`}
         alt="George Lock"
-        className="w-48 h-48 rounded-full border-4 border-green-500 shadow-lg mb-6 object-cover object-[center_30%]"
+        className="w-48 h-48 rounded-full border-4 border-green-500 shadow-lg mb-6 object-cover object-[center_25%]"
       />
       <h1 className="text-4xl font-bold text-gray-900 mb-2">George Lock</h1>
       <h2 className="text-xl font-semibold text-green-600 mb-4">

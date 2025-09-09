@@ -27,7 +27,7 @@ export default function AboutPage() {
                 <img 
                   src="/images/george-graduation.png" 
                   alt="George Lock"
-                  className="w-full h-full object-cover" 
+                  className="w-full h-full object-cover object-[center_25%]" 
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-purple-900/80 via-transparent to-transparent"></div>
               </div>
