@@ -5,11 +5,13 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "render-build": "./render-build.sh",
+    "render-build": "bash ./render-build.sh",
     "start": "next start",
     "lint": "next lint",
     "deploy": "npm run build && touch out/.nojekyll && gh-pages -d out -t true -b gh-pages",
-    "deploy-static": "gh-pages -d public -b gh-pages"
+    "deploy-static": "gh-pages -d public -b gh-pages",
+    "build:render": "./build.sh render",
+    "build:github": "./build.sh github"
   },
   "dependencies": {
     "lucide-react": "^0.307.0",
