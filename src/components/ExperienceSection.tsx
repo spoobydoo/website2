@@ -32,52 +32,38 @@ const ExperienceSection = () => {
         <h2 className="text-3xl font-bold text-green-700 inline-block border-b-2 border-green-200 pb-1">Work Experience</h2>
       </div>
       
-      <div className="grid grid-cols-6 gap-1">
-        <div className="col-span-3">
-          <div className="text-xl font-semibold mb-1">Work Highlights</div>
+      <div className="grid grid-cols-2 gap-6">
+        {/* Left side - Work Highlights */}
+        <div>
+          <div className="text-xl font-semibold mb-4">Work Highlights</div>
+          <div className="grid grid-cols-3 gap-1">
+            {workSamples.map((sample) => (
+              <div 
+                key={sample.id} 
+                className="aspect-square overflow-hidden bg-gray-100 cursor-pointer"
+                onClick={() => setSelectedImage(`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/work/${sample.path}`)}
+              >
+                <img
+                  src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/work/${sample.path}`}
+                  alt={`Work sample ${sample.id}`}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ))}
+          </div>
         </div>
         
-        <div className="col-span-3">
-          <div className="text-xl font-semibold mb-1">Resume</div>
-          {/* Resume - spans 3 columns */}
-          <a href={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/docs/resume.pdf`} target="_blank" rel="noopener noreferrer" className="block h-full">
+        {/* Right side - Resume */}
+        <div>
+          <div className="text-xl font-semibold mb-4">Resume</div>
+          <a href={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/docs/resume.pdf`} target="_blank" rel="noopener noreferrer" className="block">
             <img
               src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/resume.png`}
               alt="Resume"
-              className="w-full h-full object-contain bg-white"
+              className="w-full h-auto object-contain bg-white"
             />
           </a>
         </div>
-        
-        {/* First 3 work samples - row 1 */}
-        {workSamples.slice(0, 3).map((sample) => (
-          <div 
-            key={sample.id} 
-            className="aspect-square overflow-hidden bg-gray-100 cursor-pointer"
-            onClick={() => setSelectedImage(`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/work/${sample.path}`)}
-          >
-            <img
-              src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/work/${sample.path}`}
-              alt={`Work sample ${sample.id}`}
-              className="w-full h-full object-cover"
-            />
-          </div>
-        ))}
-        
-        {/* Remaining work samples - rows 2-6 */}
-        {workSamples.slice(3, 17).map((sample) => (
-          <div 
-            key={sample.id} 
-            className="aspect-square overflow-hidden bg-gray-100 cursor-pointer col-span-1"
-            onClick={() => setSelectedImage(`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/work/${sample.path}`)}
-          >
-            <img
-              src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/work/${sample.path}`}
-              alt={`Work sample ${sample.id}`}
-              className="w-full h-full object-cover"
-            />
-          </div>
-        ))}
       </div>
 
       {/* Image Modal */}
