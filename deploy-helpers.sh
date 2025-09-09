@@ -18,6 +18,27 @@ build_for_github() {
   
   echo -e "${YELLOW}Creating .nojekyll file...${NC}"
   touch out/.nojekyll
+}
+
+# Function to build for Render
+build_for_render() {
+  echo -e "${YELLOW}Building for Render...${NC}"
+  
+  # Make sure the render build script is executable
+  chmod +x render-build.sh
+  
+  echo -e "${YELLOW}Testing render build script locally...${NC}"
+  ./render-build.sh
+  
+  if [ -d "dist" ]; then
+    echo -e "${GREEN}✅ Build succeeded! 'dist' directory created.${NC}"
+    echo -e "${YELLOW}Contents of dist directory:${NC}"
+    ls -la dist/
+    return 0
+  else
+    echo -e "${RED}❌ Build failed! 'dist' directory not created.${NC}"
+    return 1
+  fi
   
   echo -e "${YELLOW}Fixing asset paths in HTML files...${NC}"
   find out -name "*.html" -exec sed -i 's|"/_next/|"/website2/_next/|g' {} \;

@@ -13,6 +13,16 @@ echo -e "${BLUE}      DEPLOYMENT DEBUG CHECKER         ${NC}"
 echo -e "${BLUE}========================================${NC}"
 echo
 
+# Check if running in Render environment
+if [ -n "$RENDER" ]; then
+  echo -e "${YELLOW}Running in Render environment${NC}"
+  echo -e "${YELLOW}RENDER_INTERNAL_HOSTNAME: $RENDER_INTERNAL_HOSTNAME${NC}"
+  echo -e "${YELLOW}RENDER_SERVICE_TYPE: $RENDER_SERVICE_TYPE${NC}"
+  echo -e "${YELLOW}PWD: $(pwd)${NC}"
+  echo -e "${YELLOW}Directory contents:${NC}"
+  ls -la
+fi
+
 # Check if next.config.js has correct settings
 echo -e "${YELLOW}Checking next.config.js settings...${NC}"
 if grep -q "basePath.*'/website2'" next.config.js && grep -q "assetPrefix.*'/website2/'" next.config.js; then
