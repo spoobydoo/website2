@@ -63,8 +63,12 @@ const Navigation = () => {
               <div className={`relative w-12 h-12 bg-white rounded-full 
                   flex items-center justify-center transform transition-all duration-300 
                   ${isScrolled ? 'scale-90' : 'scale-100'} 
-                  border-2 border-white group-hover:border-white/90`}>
-                <span className="text-green-600 font-bold text-xl">GL</span>
+                  border-2 border-white group-hover:border-white/90 overflow-hidden`}>
+                <img 
+                  src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/george-graduation.png`}
+                  alt="George Lock"
+                  className="w-full h-full object-cover object-[center_30%]"
+                />
               </div>
             </div>
             <div className="flex flex-col">
