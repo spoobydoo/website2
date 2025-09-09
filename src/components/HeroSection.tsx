@@ -18,7 +18,7 @@ const HeroSection = () => {
       </p>
       <div className="flex gap-4 mb-8">
         <Link href="#contact" className="button-primary">Contact Me</Link>
-        <Link href="#experience" className="button-outline">My Experience</Link>
+        <Link href="#experience" className="button-primary">My Experience</Link>
       </div>
       <div className="flex gap-8 justify-center">
         <div className="bg-green-50 rounded-xl p-6 w-40 text-center shadow">

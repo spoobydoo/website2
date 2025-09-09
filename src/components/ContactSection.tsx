@@ -14,7 +14,7 @@ const ContactSection = () => {
             glock112802@gmail.com
           </a>
           <div className="mt-4">
-            <a href="mailto:glock112802@gmail.com" className="button-outline text-sm py-2">
+            <a href="mailto:glock112802@gmail.com" className="button-primary text-sm py-2">
               Send Email
             </a>
           </div>
@@ -40,12 +40,6 @@ const ContactSection = () => {
               Connect on LinkedIn
             </a>
           </div>
-        </div>
-      </div>
-      
-      <div className="mt-12 text-center">
-        <div className="inline-block button-primary">
-          <a href="mailto:glock112802@gmail.com">Get in Touch</a>
         </div>
       </div>
       
