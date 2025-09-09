@@ -1,6 +1,10 @@
-import React from 'react';
+"use client";
+
+import React, { useState } from 'react';
 
 const ExperienceSection = () => {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   // Create an array of work samples with fixed image paths to match screenshot
   const workSamples = [
     { id: 1, path: '01_IMG_4298.png' },
@@ -36,7 +40,11 @@ const ExperienceSection = () => {
         
         {/* First 3 work samples - row 1 */}
         {workSamples.slice(0, 3).map((sample) => (
-          <div key={sample.id} className="aspect-square overflow-hidden bg-gray-100">
+          <div 
+            key={sample.id} 
+            className="aspect-square overflow-hidden bg-gray-100 cursor-pointer"
+            onClick={() => setSelectedImage(`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/work/${sample.path}`)}
+          >
             <img
               src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/work/${sample.path}`}
               alt={`Work sample ${sample.id}`}
@@ -58,7 +66,11 @@ const ExperienceSection = () => {
         
         {/* Remaining work samples - rows 2-6 */}
         {workSamples.slice(3, 16).map((sample) => (
-          <div key={sample.id} className="aspect-square overflow-hidden bg-gray-100">
+          <div 
+            key={sample.id} 
+            className="aspect-square overflow-hidden bg-gray-100 cursor-pointer"
+            onClick={() => setSelectedImage(`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/work/${sample.path}`)}
+          >
             <img
               src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/work/${sample.path}`}
               alt={`Work sample ${sample.id}`}
@@ -68,7 +80,10 @@ const ExperienceSection = () => {
         ))}
         
         {/* Last work sample - row 6 */}
-        <div className="aspect-square overflow-hidden bg-gray-100">
+        <div 
+          className="aspect-square overflow-hidden bg-gray-100 cursor-pointer"
+          onClick={() => setSelectedImage(`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/work/${workSamples[16].path}`)}
+        >
           <img
             src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/work/${workSamples[16].path}`}
             alt={`Work sample ${workSamples[16].id}`}
@@ -76,6 +91,31 @@ const ExperienceSection = () => {
           />
         </div>
       </div>
+
+      {/* Image Modal */}
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4"
+          onClick={() => setSelectedImage(null)}
+        >
+          <div className="relative max-w-4xl max-h-[90vh] w-full">
+            <button 
+              className="absolute top-4 right-4 bg-white rounded-full w-10 h-10 flex items-center justify-center text-xl font-bold z-10"
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedImage(null);
+              }}
+            >
+              ×
+            </button>
+            <img
+              src={selectedImage}
+              alt="Enlarged work sample"
+              className="max-h-[90vh] max-w-full object-contain mx-auto"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
