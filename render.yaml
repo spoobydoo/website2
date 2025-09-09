@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: website2
+    env: static
+    buildCommand: npm install && npm run render-build
+    staticPublishPath: ./dist
+    branch: main
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: no-cache
