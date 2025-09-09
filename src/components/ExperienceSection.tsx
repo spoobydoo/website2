@@ -63,12 +63,14 @@ const ExperienceSection = () => {
             />
           </a>
           
-          <div className="aspect-square overflow-hidden bg-gray-100">
-            <img
-              src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/work/${workSamples[16].path}`}
-              alt={`Work sample ${workSamples[16].id}`}
-              className="w-full h-full object-cover"
-            />
+          <div className="grid grid-cols-1 gap-1">
+            <div className="aspect-square overflow-hidden bg-gray-100">
+              <img
+                src={`${process.env.NODE_ENV === 'production' ? '/website2' : ''}/images/work/${workSamples[16].path}`}
+                alt={`Work sample ${workSamples[16].id}`}
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
         </div>
       </div>
