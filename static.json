@@ -1,0 +1,15 @@
+{
+  "root": ".",
+  "clean_urls": true,
+  "routes": {
+    "/**": "index.html"
+  },
+  "headers": {
+    "/**": {
+      "Cache-Control": "public, max-age=3600"
+    },
+    "/images/**": {
+      "Cache-Control": "public, max-age=86400"
+    }
+  }
+}

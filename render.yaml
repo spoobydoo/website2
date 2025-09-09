@@ -2,5 +2,16 @@ services:
   - type: web
     name: george-portfolio
     runtime: static
-    buildCommand: echo "No build needed - using static files"
+    buildCommand: ./fix-render-paths-comprehensive.sh
     staticPublishPath: ./
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: public, max-age=3600
+      - path: /images/*
+        name: Cache-Control
+        value: public, max-age=86400
+    routes:
+      - type: rewrite
+        source: /website2/*
+        destination: /:splat
