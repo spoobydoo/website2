@@ -15,7 +15,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const closeButton = document.createElement('button');
   closeButton.className = 'absolute top-2 right-2 text-white bg-green-600 rounded-full w-10 h-10 flex items-center justify-center';
   closeButton.innerHTML = '&times;';
-  closeButton.addEventListener('click', function() {
+  closeButton.addEventListener('click', function(e) {
+    e.stopPropagation(); // Stop event from bubbling
     modal.classList.add('hidden');
   });
   
@@ -24,9 +25,14 @@ document.addEventListener('DOMContentLoaded', function() {
   modal.appendChild(modalContent);
   document.body.appendChild(modal);
   
-  // Close modal when clicking outside the image
-  modal.addEventListener('click', function(event) {
-    if (event.target === modal) {
+  // Prevent clicks on modal content from closing the modal
+  modalContent.addEventListener('click', function(e) {
+    e.stopPropagation(); // Stop event from bubbling to modal
+  });
+  
+  // Close modal when clicking outside the image (directly on modal backdrop)
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) {
       modal.classList.add('hidden');
     }
   });
@@ -34,7 +40,8 @@ document.addEventListener('DOMContentLoaded', function() {
   // Add click event to all work highlight images
   const workImages = document.querySelectorAll('#experience .aspect-square.cursor-pointer img');
   workImages.forEach(function(img) {
-    img.addEventListener('click', function() {
+    img.addEventListener('click', function(e) {
+      e.stopPropagation(); // Prevent other click handlers
       const imgSrc = this.getAttribute('src');
       modalImage.setAttribute('src', imgSrc);
       modal.classList.remove('hidden');
