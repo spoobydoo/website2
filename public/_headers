@@ -1,0 +1,24 @@
+# Set Cache-Control for images
+/images/*
+  Cache-Control: public, max-age=86400
+  Access-Control-Allow-Origin: *
+
+# Set Cache-Control for work images
+/images/work/*
+  Cache-Control: public, max-age=86400
+  Access-Control-Allow-Origin: *
+
+# Handle SVG files properly
+/*.svg
+  Content-Type: image/svg+xml
+  Cache-Control: public, max-age=86400
+
+# Handle PNG files properly
+/*.png
+  Content-Type: image/png
+  Cache-Control: public, max-age=86400
+
+# Handle JPG files properly
+/*.jpg
+  Content-Type: image/jpeg
+  Cache-Control: public, max-age=86400
